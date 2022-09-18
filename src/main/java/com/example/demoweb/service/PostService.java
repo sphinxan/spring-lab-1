@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class PostService {
 
-    List<Post> posts = new ArrayList<>();
+    private final List<Post> posts = new ArrayList<>();
 
     //метод возвращающий список из трёх постов с текстами на ваше усмотрение
     public List<Post> listAllPosts(){
@@ -23,6 +23,6 @@ public class PostService {
         //posts.add(new Post("first", 1, new Date(2020, 01, 01)));
         //posts.add(new Post("second", 2, new Date(2021, 01, 01)));
         //posts.add(new Post("third", 3, new Date(2022, 01, 01)));
-        posts.add(new Post(text, 0, new Date()));
+        posts.add(new Post(posts.size(), text, 0, new Date()));
     }
 }
