@@ -12,9 +12,9 @@ public class PostService {
 
     //метод возвращающий список из трёх постов с текстами на ваше усмотрение
     public List<Post> listAllPosts(){
-        List<Post> posts = Arrays.asList(new Post("first", 1, new Date()),
-                new Post("second", 2, new Date()),
-                new Post("third", 3, new Date()));
+        List<Post> posts = Arrays.asList(new Post("first", 1, new Date(2020,01,01)),
+                new Post("second", 2, new Date(2021,01,01)),
+                new Post("third", 3, new Date(2022,01,01)));
         return posts;
     }
 }
