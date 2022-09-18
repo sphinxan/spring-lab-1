@@ -13,6 +13,7 @@ public class PostsViewController {
     @Autowired
     PostService postsService;
 
+    //метод для будущего отображения одного поста
     @ResponseBody
     @RequestMapping(path = "/post/{id}", method = RequestMethod.GET)
     public String single(@PathVariable("id") Long id) {
