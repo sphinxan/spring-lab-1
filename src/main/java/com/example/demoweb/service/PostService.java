@@ -3,6 +3,9 @@ package com.example.demoweb.service;
 import com.example.demoweb.model.Post;
 import org.springframework.stereotype.Service;
 
+import com.example.demoweb.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -11,18 +14,15 @@ import java.util.List;
 @Service
 public class PostService {
 
-    private final List<Post> posts = new ArrayList<>();
+    @Autowired
+    PostRepository postRepository;
 
-    //метод возвращающий список из трёх постов с текстами на ваше усмотрение
-    public List<Post> listAllPosts(){
-        return posts;
+    public Iterable<Post> listAllPosts() {
+        return postRepository.findAll();
     }
-
     //Сервис для добавления поста
     public void create(String text) {
-        //posts.add(new Post("first", 1, new Date(2020, 01, 01)));
-        //posts.add(new Post("second", 2, new Date(2021, 01, 01)));
-        //posts.add(new Post("third", 3, new Date(2022, 01, 01)));
-        posts.add(new Post(posts.size(), text, 0, new Date()));
+        Post post = new Post(null, text, new Date());
+        postRepository.save(post);
     }
 }

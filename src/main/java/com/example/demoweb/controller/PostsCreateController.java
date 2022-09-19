@@ -12,7 +12,6 @@ public class PostsCreateController {
     @Autowired
     PostService postsService;
 
-    @ResponseBody
     @RequestMapping(path = "/new", method = RequestMethod.GET)
     public String create(Model model) {
         return "create";
